@@ -14,8 +14,6 @@ def get_weather(city):
         
         if response.status_code != 200 or "name" not in data:
             return None
-
-        # Verileri işleme
         city = data["name"].capitalize()
         country = data["sys"]["country"]
         temp = int(data["main"]["temp"] - 273.15) 
@@ -30,7 +28,6 @@ def get_weather(city):
             "condition": condition
         }
     except Exception as e:
-        # Hatalı durumlarda None döndür
         print(f"Hata oluştu: {e}")
         return None
 
